@@ -48,18 +48,33 @@ async function generateEmail() {
     }
 
     // PRICE BLOCK
-    if (rateEnabled) {
+if (rateEnabled) {
 
-        const sea = parseFloat(document.getElementById("sea").value) || 0;
-        const rail = parseFloat(document.getElementById("rail").value) || 0;
-        const auto = parseFloat(document.getElementById("auto").value) || 0;
+    const sea = parseFloat(document.getElementById("sea").value) || 0;
+    const rail = parseFloat(document.getElementById("rail").value) || 0;
+    const auto = parseFloat(document.getElementById("auto").value) || 0;
 
-        const transportType = document.getElementById("transportType").value;
-        const conditions = document.getElementById("conditions").value;
+    const transportType = document.getElementById("transportType").value;
+    const conditions = document.getElementById("conditions").value;
 
+    let priceText = "";
+
+    // ЕСЛИ ТЕНТ ИЛИ РЕФ → обычная котировка
+    if (transportType === "тент" || transportType === "реф") {
+
+        const total = sea || rail || auto; // используем одно значение
+
+        priceText = `
+${conditions} ${transit}, ${transportType} — ${total} USD
+Транзитный срок: 7-14 дней.
+`;
+
+    } else {
+
+        // Китай / контейнеры → считаем ALL IN
         const allIn = sea + rail + auto;
 
-        let priceText = `
+        priceText = `
 ${conditions} ${transit}, ${transportType} — ${allIn} USD
 
 Морской фрахт: ${sea} USD
@@ -67,12 +82,13 @@ ${conditions} ${transit}, ${transportType} — ${allIn} USD
 Автовывоз: ${auto} USD
 Транзитный срок: 7-14 дней.
 `;
-
-        text = text.replace("{price}", priceText);
-
-    } else {
-        text = text.replace("{price}", "");
     }
+
+    text = text.replace("{price}", priceText);
+
+} else {
+    text = text.replace("{price}", "");
+}
 
     // MARKING
     if (document.getElementById("markingCheck").checked) {
@@ -94,3 +110,4 @@ function copyText() {
     output.select();
     document.execCommand("copy");
 }
+
