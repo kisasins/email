@@ -64,3 +64,20 @@ button:hover {
         min-height: 200px;
     }
 }
+
+.checkbox-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 20px 0;
+}
+
+.checkbox-row input {
+    width: 18px;
+    height: 18px;
+}
+
+.checkbox-row label {
+    font-size: 14px;
+    cursor: pointer;
+}
