@@ -8,10 +8,10 @@ rateToggle.addEventListener("change", function () {
 });
 
 const companyMap = {
-    food: "Могунция, Новапродукт",
-    candy: "Алютех, Купишуз, Белдор",
-    alcohol: "Аливария, Минск Кристалл",
-    feed: "Белкорм, Агропродукт"
+    food: "Могунция, Новапродукт, Агродом.",
+    candy: "Нестле, Делер.",
+    alcohol: "Оазис, Бристоль, Магнит, Лиско-Плюс.",
+    feed: "Валта."
 };
 
 async function generateEmail() {
@@ -110,4 +110,5 @@ function copyText() {
     output.select();
     document.execCommand("copy");
 }
+
 
