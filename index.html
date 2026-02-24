@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Constructor</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Email Конструктор</h2>
+
+    <input type="text" id="name" placeholder="Имя ЛПР">
+
+    <select id="direction">
+        <option value="China_template.txt">Китай</option>
+        <option value="Europe_template.txt">ЦЕ</option>
+        <option value="Turkey_template.txt">Турция</option>
+    </select>
+
+    <select id="rateToggle">
+        <option value="no">Нет ставки</option>
+        <option value="yes">Есть ставка</option>
+    </select>
+
+    <div id="rateBlock" style="display:none;">
+        <input type="text" id="conditions" placeholder="FCA/EXW/FOB">
+        <input type="text" id="loadCity" placeholder="Город загрузки">
+        <input type="text" id="unloadCity" placeholder="Город выгрузки">
+        <input type="text" id="rate" placeholder="5000USD">
+    </div>
+
+    <button onclick="generateEmail()">Сгенерировать</button>
+    <button onclick="copyText()">Скопировать</button>
+
+    <textarea id="output"></textarea>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

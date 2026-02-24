@@ -1,0 +1,2 @@
+{conditions} {load_city} - {unload_city}, {vehicle} - {rate}EUR
+Транзитный срок: {transit}
